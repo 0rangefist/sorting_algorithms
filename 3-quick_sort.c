@@ -21,7 +21,9 @@ size_t partition(int *array, size_t size, size_t start_index, size_t end_index)
 	{
 		if (array[curr_index] < pivot)
 		{
-			if (curr_index != pivot_index) /* Print array if swaps happen */
+			if (curr_index != pivot_index
+				&& array[curr_index] != array[pivot_index])
+			/* Print array if swaps happen */
 			{
 				/* swap the elements */
 				temp			   = array[curr_index];
@@ -36,7 +38,8 @@ size_t partition(int *array, size_t size, size_t start_index, size_t end_index)
 		}
 	}
 
-	if (pivot_index != end_index)
+	if (pivot_index != end_index
+	&& array[pivot_index] != array[end_index])
 	{
 		/* swap pivot with element at pivot_index to sort the pivot */
 		temp			   = array[pivot_index];
